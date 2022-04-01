@@ -7,7 +7,6 @@
     creating customer objects.  
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Below is a cart array that has food objects
@@ -19,24 +18,26 @@
 */
 
 const cart = [
-    {
-        name: 'pizza', 
-        price: 9.99
-    }, 
-    {
-        name: 'pasta', 
-        price: 8.99
-    }, 
-    {
-        name: 'salad', 
-        price: 7.99
-    }
-]
+  {
+    name: 'pizza',
+    price: 9.99,
+  },
+  {
+    name: 'pasta',
+    price: 8.99,
+  },
+  {
+    name: 'salad',
+    price: 7.99,
+  },
+];
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
+const summedPrice = cart.reduce(function (acc, curr) {
+  return acc.price + curr.price;
+});
+// console.log(summedPrice);
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -53,9 +54,10 @@ const cart = [
     decimals, for example: .06 for a 6% tax.
 */
 
-//CODE HERE
-
-
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+  return cartTotal * (1 + tax) - couponValue;
+};
+// console.log(calcFinalPrice(100, 7, 0.1));
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -78,7 +80,10 @@ const cart = [
 */
 
 /*
-    TEXT ANSWER HERE
+    The customer object will include the customer's name, so that it can be displayed on the web page; it will be stored as a string.
+    The customer's address, for delivery purposes, will be stored as a string.
+    The customer's phone number, for contact purposes, stored as a number.
+    Any relevant food allergies, stored as an array of strings.
 
 */
 
@@ -87,4 +92,10 @@ const cart = [
     guidelines.
 */
 
-//CODE HERE
+const customer = {
+  name: 'Eric Anderson',
+  address: '805 NW Sundance Circle',
+  phone: 8454804159,
+  allergies: ['eggs'],
+};
+// console.log(customer);

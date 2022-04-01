@@ -7,7 +7,6 @@
     and filtering those arrays. 
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Create an object called `pizza` that has 6
@@ -30,9 +29,16 @@
     'kids'
 */
 
-//CODE HERE
+const pizza = {
+  name: 'pizza',
+  price: 15,
+  category: 'entree',
+  popularity: 2,
+  rating: 4.2,
+  tags: ['kids', 'fast', 'dairy', 'takeout'],
+};
 
-
+// console.log(pizza);
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -42,8 +48,7 @@
     Use dot notation to access the value.
 */
 
-//CODE HERE
-
+// console.log(`Pizza's current popluarity is ${pizza.popularity}.`);
 
 /*
     Second, log the second tag in your pizza's
@@ -52,8 +57,7 @@
     get the value.
 */
 
-//CODE HERE
-
+// console.log(`The second tag for pizza is ${pizza.tags[1]}.`);
 
 /*
     Third, destructure the price off of the
@@ -62,8 +66,8 @@
     Print the value of your new price variable.
 */
 
-//CODE HERE
-
+let { price } = pizza;
+// console.log(`The current price of a pizza is ${price}`);
 
 /*
     Fourth, and last, destructure the category
@@ -72,8 +76,8 @@
     Print the value of your category variable. 
 */
 
-//CODE HERE
-
+let { category } = pizza;
+// console.log(`Pizza belongs to the category ${category}.`);
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -87,9 +91,48 @@
     data in some functions that you'll write.
 */
 
-//CODE HERE
-
-
+foodArr = [
+  {
+    name: 'pizza',
+    price: 15,
+    category: 'entree',
+    popularity: 2,
+    rating: 4.2,
+    tags: ['kids', 'dairy', 'takeout'],
+  },
+  {
+    name: 'salad',
+    price: 6,
+    category: 'appetizer',
+    popularity: 4,
+    rating: 3.6,
+    tags: ['vegetarian', 'cold', 'dine-in', 'gluten free'],
+  },
+  {
+    name: 'soda',
+    price: 2,
+    category: 'drink',
+    popularity: 3,
+    rating: 4.5,
+    tags: ['kids', 'fast', 'takeout'],
+  },
+  {
+    name: 'garlic knots',
+    price: 5,
+    category: 'appetizer',
+    popularity: 5,
+    rating: 3.2,
+    tags: ['kids', 'fast', 'dine-in', 'side'],
+  },
+  {
+    name: 'ice cream',
+    price: 4,
+    category: 'dessert',
+    popularity: 1,
+    rating: 4.7,
+    tags: ['kids', 'fast', 'dairy', 'takeout', 'cone'],
+  },
+];
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -105,9 +148,8 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
-
-
+const filteredFood = foodArr.filter((item) => item.tags.includes('dairy'));
+// console.log(filteredFood);
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -141,21 +183,28 @@
         if it is, return objects whose value for the given
         property is greater than the `number` passed in
 
-        If the type isn't `below`, return objects whose
+        If the type is `below`, return objects whose
         value for the given property is less than the 
         `number` passed in
     
     Return the filtered array from the entire function
 */
 
-//CODE HERE
-
+const filterByProperty = (property, number, type) => {
+  if (type === 'above') {
+    return (filteredMenu = foodArr.filter((item) => item[property] > number));
+  } else if (type === 'below') {
+    return (filteredMenu = foodArr.filter((item) => item[property] < number));
+  }
+};
 
 /*
-    Invoke the `filterByProperty` function passing
-    in a value for each paramter.
+Invoke the `filterByProperty` function passing
+in a value for each paramter.
 
-    You'll have to console.log to see the filtered array
+You'll have to console.log to see the filtered array
 */
 
 //CODE HERE
+filterByProperty('rating', 4, 'below');
+console.log(filteredMenu);
