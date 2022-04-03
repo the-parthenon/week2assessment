@@ -35,9 +35,9 @@ const cart = [
 //CODE HERE
 
 const summedPrice = cart.reduce(function (acc, curr) {
-  return acc.price + curr.price;
-});
-// console.log(summedPrice);
+  return acc + curr.price;
+}, 0);
+console.log(summedPrice);
 
 //////////////////PROBLEM 2////////////////////
 /*  
